@@ -23,8 +23,8 @@ unit-tests:
     - "chmod +x mvn"
   script:
     - "mvn test"
-    tags:
-      - docker
+  tags:
+    - docker
 maven-build-and-docker-push:
   image: openjdk:11-jdk-slim
   stage: build
