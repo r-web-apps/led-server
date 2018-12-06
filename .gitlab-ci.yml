@@ -24,7 +24,8 @@ unit-tests:
   script:
     - ./mvnw test
   tags:
-    - docker
+    - docker-fast
+    
 maven-build-and-docker-push:
   image: openjdk:11-jdk-slim
   stage: build
@@ -38,3 +39,5 @@ maven-build-and-docker-push:
   after_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN  docker.rubeen.me
     - docker push docker.rubeen.me/playground/led-server/server:latest
+  tags:
+    - docker-fast
