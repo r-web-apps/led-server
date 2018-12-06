@@ -1,0 +1,39 @@
+image: docker:latest
+
+cache:
+  paths:
+    - .m2/
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2"
+
+stages:
+  - test
+  - build
+
+unit-tests:
+  image: openjdk:11-jdk-slim
+  stage: test
+  artifacts:
+    when: always
+    expire_in: 1 week
+    paths:
+      - build/reports
+  before_script:
+    - "chmod +x mvn"
+  script:
+    - "mvn test"
+    tags:
+      - docker
+maven-build-and-docker-push:
+  image: openjdk:11-jdk-slim
+  stage: build
+  artifacts:
+    paths:
+      - target/*
+  before_script:
+    - "chmod +x mvn"
+  script:
+    - "./mvnw install dockerfile:build"
+  after_script:
+    -
