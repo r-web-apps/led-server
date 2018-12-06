@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
-        <docker.image.prefix>rubeen</docker.image.prefix>
+        <docker.image.prefix>docker.rubeen.me/playground/led-server</docker.image.prefix>
     </properties>
 
     <dependencies>

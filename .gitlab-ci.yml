@@ -34,6 +34,7 @@ maven-build-and-docker-push:
   before_script:
     - "chmod +x mvn"
   script:
-    - "./mvnw install dockerfile:build"
+    - ./mvnw install dockerfile:build
   after_script:
-    -
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN  docker.rubeen.me
+    - docker push docker.rubeen.me/playground/led-server/server:latest
