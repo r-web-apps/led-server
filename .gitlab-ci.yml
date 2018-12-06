@@ -20,7 +20,7 @@ unit-tests:
     paths:
       - build/reports
   before_script:
-    - "chmod +x mvn"
+    - "chmod +x mvnw"
   script:
     - ./mvnw test
   tags:
