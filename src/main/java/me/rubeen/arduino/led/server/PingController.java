@@ -24,8 +24,6 @@ public class PingController {
     @RequestMapping(path = "/ping", method = RequestMethod.GET)
     public ResponseEntity<String> ping(HttpServletRequest request) {
         LOG.info("got PING from {}", request.getRemoteAddr());
-        serviceRGB.getRgbStripes().forEach(rgbStripe -> rgbStripe.turn(IShiningObject.LightState.ON));
-        serviceRGB.getRgbStripes().forEach(rgbStripe -> rgbStripe.turn(IShiningObject.LightState.OFF));
         return new ResponseEntity<>("PONG", HttpStatus.OK);
     }
 }
