@@ -22,7 +22,7 @@ unit-tests:
   before_script:
     - "chmod +x mvn"
   script:
-    - ./mvn test
+    - ./mvnw test
   tags:
     - docker
 maven-build-and-docker-push:
@@ -32,9 +32,9 @@ maven-build-and-docker-push:
     paths:
       - target/*
   before_script:
-    - "chmod +x mvn"
+    - "chmod +x mvnw"
   script:
-    - ./mvn install dockerfile:build
+    - ./mvnw install dockerfile:build
   after_script:
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN  docker.rubeen.me
     - docker push docker.rubeen.me/playground/led-server/server:latest
