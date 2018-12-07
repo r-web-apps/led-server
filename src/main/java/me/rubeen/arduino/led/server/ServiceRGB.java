@@ -17,6 +17,7 @@ public class ServiceRGB {
 
     public ServiceRGB() throws UnknownHostException {
         addToList(new RGBStripe(InetAddress.getByName("192.168.178.93"), 0, "https://www.derrywood.com/wp-content/uploads/2017/03/RGB-LED-Strip.jpg", "LED-Leiste (Spiegel)", false));
+        addToList(new RGBStripe(InetAddress.getByName("192.168.178.94"), 1, "https://cdn.instructables.com/FHP/6X15/HPX5AZY9/FHP6X15HPX5AZY9.LARGE.jpg", "LED-Leiste (Bett)", false));
         //addToList(new RGBStripe(InetAddress.getByName("192.168.178.99"), 1, "https://i.pinimg.com/originals/fa/b4/a0/fab4a045779b34c51d7a03cae6aee610.jpg", "LED-Leiste (Bett)", false));
         //addToList(new RGBStripe(InetAddress.getByName("192.168.178.182"), 2, "https://www.countrystyle.se/7135-home_default/light-chain-bulb-battery.jpg", "Lichterkette (Kommode)", true));
     }
