@@ -1,0 +1,68 @@
+<html lang="de">
+<head>
+    <title>LED-Server</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <input id="colorSwitcher" type="color"><br>
+    <button id="sendColors">Send color</button>
+</div>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        align-content: center;
+        text-align: center;
+    }
+    #colorSwitcher {
+        width: 100vw;
+        height: 150px;
+        display: inline-block;
+        border: none;
+    }
+    #sendColors {
+        width: 200px;
+        height: 50px;
+        display: inline-block;
+        background: coral;
+        border: none;
+    }
+</style>
+<script>
+    $('#sendColors').click(function () {
+        const rgb = hexToRgb($('#colorSwitcher').val());
+        $.ajax({
+            url: 'http://localhost:8080/set/manual/0',
+            headers: {
+                'color': 'red',
+                'brightness': rgb.r
+            }
+        });
+        $.ajax({
+            url: 'http://localhost:8080/set/manual/0',
+            headers: {
+                'color': 'green',
+                'brightness': rgb.g
+            }
+        });
+        $.ajax({
+            url: 'http://localhost:8080/set/manual/0',
+            headers: {
+                'color': 'blue',
+                'brightness': rgb.b
+            }
+        });
+    });
+
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+</script>
+</body>
+</html>
