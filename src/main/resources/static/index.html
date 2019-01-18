@@ -33,21 +33,21 @@
     $('#sendColors').click(function () {
         const rgb = hexToRgb($('#colorSwitcher').val());
         $.ajax({
-            url: 'http://localhost:8080/set/manual/0',
+            url: 'http://raspberrypi.fritz.box:8080/set/manual/0',
             headers: {
                 'color': 'red',
                 'brightness': rgb.r
             }
         });
         $.ajax({
-            url: 'http://localhost:8080/set/manual/0',
+            url: 'http://raspberrypi.fritz.box:8080/set/manual/0',
             headers: {
                 'color': 'green',
                 'brightness': rgb.g
             }
         });
         $.ajax({
-            url: 'http://localhost:8080/set/manual/0',
+            url: 'http://raspberrypi.fritz.box:8080/set/manual/0',
             headers: {
                 'color': 'blue',
                 'brightness': rgb.b
